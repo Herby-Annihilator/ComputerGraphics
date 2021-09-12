@@ -76,7 +76,7 @@ namespace Lab1.Infrastructure.FigureBuilders
 			{
 				edgesMatrix[i] = edges[i].ToIntArray();
 			}
-			figure.Vertexes = DenseMatrix.OfRowArrays(vertexesMatrix);
+			figure.Vertexes = DenseMatrix.OfRowArrays(vertexesMatrix).Transpose();
 			figure.Edges = edgesMatrix;
 			return figure;
 		}
