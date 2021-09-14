@@ -57,7 +57,8 @@ namespace Lab1
             this.toolStripMenuItemHelp});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(914, 28);
+			this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -66,19 +67,19 @@ namespace Lab1
 			this.toolStripMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemTask});
 			this.toolStripMenuItemFile.Name = "toolStripMenuItemFile";
-			this.toolStripMenuItemFile.Size = new System.Drawing.Size(46, 24);
+			this.toolStripMenuItemFile.Size = new System.Drawing.Size(37, 20);
 			this.toolStripMenuItemFile.Text = "File";
 			// 
 			// toolStripMenuItemTask
 			// 
 			this.toolStripMenuItemTask.Name = "toolStripMenuItemTask";
-			this.toolStripMenuItemTask.Size = new System.Drawing.Size(119, 26);
+			this.toolStripMenuItemTask.Size = new System.Drawing.Size(96, 22);
 			this.toolStripMenuItemTask.Text = "Task";
 			// 
 			// toolStripMenuItemHelp
 			// 
 			this.toolStripMenuItemHelp.Name = "toolStripMenuItemHelp";
-			this.toolStripMenuItemHelp.Size = new System.Drawing.Size(55, 24);
+			this.toolStripMenuItemHelp.Size = new System.Drawing.Size(44, 20);
 			this.toolStripMenuItemHelp.Text = "Help";
 			// 
 			// statusStrip1
@@ -86,16 +87,17 @@ namespace Lab1
 			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 574);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 593);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(914, 26);
+			this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+			this.statusStrip1.Size = new System.Drawing.Size(800, 22);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// status
 			// 
 			this.status.Name = "status";
-			this.status.Size = new System.Drawing.Size(98, 20);
+			this.status.Size = new System.Drawing.Size(78, 17);
 			this.status.Text = "status default";
 			// 
 			// tableLayoutPanel1
@@ -105,30 +107,34 @@ namespace Lab1
 			this.tableLayoutPanel1.Controls.Add(this.canvas, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(914, 546);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 569);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// canvas
 			// 
 			this.canvas.BackColor = System.Drawing.Color.White;
 			this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.canvas.Location = new System.Drawing.Point(3, 173);
+			this.canvas.Location = new System.Drawing.Point(3, 130);
+			this.canvas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.canvas.Name = "canvas";
-			this.canvas.Size = new System.Drawing.Size(908, 370);
+			this.canvas.Size = new System.Drawing.Size(794, 437);
 			this.canvas.TabIndex = 0;
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.tableLayoutPanel2);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox1.Location = new System.Drawing.Point(3, 3);
+			this.groupBox1.Location = new System.Drawing.Point(3, 2);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(908, 164);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.groupBox1.Size = new System.Drawing.Size(794, 124);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "TaskBar";
@@ -144,19 +150,22 @@ namespace Lab1
 			this.tableLayoutPanel2.Controls.Add(this.groupBox3, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.groupBox4, 2, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(902, 138);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 104);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
 			// groupBox2
 			// 
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox2.Location = new System.Drawing.Point(4, 4);
+			this.groupBox2.Location = new System.Drawing.Point(4, 3);
+			this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(293, 130);
+			this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.groupBox2.Size = new System.Drawing.Size(255, 98);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Перемещение";
@@ -164,9 +173,11 @@ namespace Lab1
 			// groupBox3
 			// 
 			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox3.Location = new System.Drawing.Point(304, 4);
+			this.groupBox3.Location = new System.Drawing.Point(266, 3);
+			this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(293, 130);
+			this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.groupBox3.Size = new System.Drawing.Size(255, 98);
 			this.groupBox3.TabIndex = 1;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Масштабирование";
@@ -174,23 +185,24 @@ namespace Lab1
 			// groupBox4
 			// 
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox4.Location = new System.Drawing.Point(604, 4);
+			this.groupBox4.Location = new System.Drawing.Point(528, 3);
+			this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(294, 130);
+			this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.groupBox4.Size = new System.Drawing.Size(256, 98);
 			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Вращение";
 			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(914, 600);
+			this.ClientSize = new System.Drawing.Size(800, 615);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
