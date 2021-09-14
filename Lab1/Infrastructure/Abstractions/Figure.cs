@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Text;
 using MathNet.Numerics.LinearAlgebra;
 
-namespace Lab1.Infrastructure.Figures
+namespace Lab1.Infrastructure.Abstractions
 {
 	public abstract class Figure<T> where T : struct, IEquatable<T>, IFormattable
 	{
@@ -16,6 +16,6 @@ namespace Lab1.Infrastructure.Figures
 		public virtual int[][] Edges { get => _edges; set => _edges = value; }
 		public virtual Pen Pen { get => _pen; set => _pen = value; }
 
-		public abstract void DrawFigure(Graphics graphics);
+		public abstract void Draw(Graphics graphics);
 	}
 }

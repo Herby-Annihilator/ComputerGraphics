@@ -31,24 +31,26 @@ namespace Lab1.Infrastructure.FigureBuilders
 			{
 				if (buffer == VERTEXES_TAG)
 				{
+					buffer = reader.ReadLine();
 					while(buffer != END_VERTEXES_TAG)
-					{
-						buffer = reader.ReadLine();
+					{						
 						if (!string.IsNullOrWhiteSpace(buffer))
 						{
 							vertexes.Add(StrToVertex(buffer));
 						}
+						buffer = reader.ReadLine();
 					}
 				}
 				if (buffer == EDGES_TAG)
 				{
+					buffer = reader.ReadLine();
 					while (buffer != END_EDGES_TAG)
-					{
-						buffer = reader.ReadLine();
+					{					
 						if (!string.IsNullOrWhiteSpace(buffer))
 						{
 							edges.Add(StrToEdge(buffer));
 						}
+						buffer = reader.ReadLine();
 					}
 				}
 			}
@@ -65,7 +67,7 @@ namespace Lab1.Infrastructure.FigureBuilders
 				if (first.ID < second.ID) return -1;
 				return 0;
 			});
-			Figure<double> figure = new Figure<double>();
+			Figure<double> figure = new Symbol();
 			double[][] vertexesMatrix = new double[vertexes.Count][];
 			for (int i = 0; i < vertexes.Count; i++)
 			{
@@ -114,10 +116,11 @@ namespace Lab1.Infrastructure.FigureBuilders
 
 		public double[] ToDoubleArray()
 		{
-			double[] result = new double[3];
+			double[] result = new double[4];
 			result[0] = X;
 			result[1] = Y;
 			result[2] = Z;
+			result[3] = 1;
 			return result;
 		}
 	}

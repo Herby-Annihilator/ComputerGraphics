@@ -125,6 +125,7 @@ namespace Lab1
 			this.canvas.Name = "canvas";
 			this.canvas.Size = new System.Drawing.Size(794, 437);
 			this.canvas.TabIndex = 0;
+			this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
 			// 
 			// groupBox1
 			// 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab1.Infrastructure.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
@@ -7,7 +8,7 @@ namespace Lab1.Infrastructure.Figures
 {
 	public class Symbol : Figure<double>
 	{
-		public override void DrawFigure(Graphics graphics)
+		public override void Draw(Graphics graphics)
 		{
 			int rows = _edges.GetLength(0);
 			int firstVertexIndex, secondVertexIndex;
