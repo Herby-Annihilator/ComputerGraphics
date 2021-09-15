@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab1.Infrastructure.Transformations.Projection;
 using Lab1.Infrastructure.Transformations.AffineTransformations.AffineTransformations3D;
+using Lab1.Infrastructure.Painters;
 
 namespace Lab1
 {
@@ -19,11 +20,17 @@ namespace Lab1
 	{
 		private IFigureBuilder<double> _builder;
 		private Figure<double> _figure;
+		private Figure<double> _coords;
+		private IPainter<double> _painter;
+
 		public Form1()
 		{
 			InitializeComponent();
 			_builder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\bin\\Debug\\netcoreapp3.1\\figure.txt");
 			_figure = _builder.Build();
+			_builder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\bin\\Debug\\netcoreapp3.1\\coords.txt");
+			_coords = _builder.Build();
+			_painter = new DPainter();
 			FirstFigureInit();
 		}
 
