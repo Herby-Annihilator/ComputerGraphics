@@ -16,6 +16,7 @@ namespace Lab1.Infrastructure.Abstractions
 		public virtual int[][] Edges { get => _edges; set => _edges = value; }
 		public virtual Pen Pen { get => _pen; set => _pen = value; }
 
-		public abstract void Draw(Graphics graphics);
+		public abstract Figure<T> Clone();
+		public abstract void Draw(Graphics graphics, PointF startPoint);
 	}
 }

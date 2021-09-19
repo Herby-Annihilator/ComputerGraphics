@@ -1,4 +1,6 @@
 ﻿using Lab1.Infrastructure.Abstractions;
+using Lab1.Infrastructure.Extensions;
+using MathNet.Numerics.LinearAlgebra;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +10,15 @@ namespace Lab1.Infrastructure.Figures
 {
 	public class Symbol : Figure<double>
 	{
-		public override void Draw(Graphics graphics)
+		public override Figure<double> Clone()
+		{
+			Symbol result = new Symbol();
+			result.Vertexes = CreateMatrix.DenseOfMatrix(Vertexes);
+			result.Edges = Edges.CloneMatrix();
+			return result;
+		}
+
+		public override void Draw(Graphics graphics, PointF startPoint)
 		{
 			int rows = _edges.GetLength(0);
 			int firstVertexIndex, secondVertexIndex;
@@ -21,7 +31,9 @@ namespace Lab1.Infrastructure.Figures
 				x2 = Vertexes[0, secondVertexIndex];
 				y1 = Vertexes[1, firstVertexIndex];
 				y2 = Vertexes[1, secondVertexIndex];
-				graphics.DrawLine(Pen, (float)x1, (float)y1, (float)x2, (float)y2);
+				graphics.DrawLine(Pen, (float)x1 + startPoint.X,
+					(float)y1 + startPoint.Y, (float)x2 + startPoint.X,
+					(float)y2 + startPoint.Y);
 			}
 		}
 	}
