@@ -19,9 +19,10 @@ namespace Lab1
 	public partial class Form1 : Form
 	{
 		private IFigureBuilder<double> _symbolBuilder;
-		private IFigureBuilder<double> _coordsBuilder;
 		private Figure<double> _figure;
-		private Figure<double> _coords;
+		private CoordSystem _coords = new CoordSystem(0, 0, 0, 25, 25, 25);
+		private Figure<double> _point3d = new Point3d(0, 0, 0, 5);
+		private PointF _coordsStartPoint = new PointF(0, 0);
 
 		private GarbageContainer _container = new GarbageContainer();
 
@@ -30,8 +31,6 @@ namespace Lab1
 			InitializeComponent();
 			_symbolBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\bin\\Debug\\netcoreapp3.1\\figure.txt");
 			_figure = _symbolBuilder.Build();
-			_coordsBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\bin\\Debug\\netcoreapp3.1\\coords.txt");
-			_coords = _coordsBuilder.Build();
 			SystemToStartCondition();
 			this.MouseWheel += Form1_MouseWheel;
 			this.KeyDown += Form1_KeyDown;
@@ -80,6 +79,48 @@ namespace Lab1
 				case Keys.Escape:
 					SystemToStartCondition();
 					break;
+				case Keys.W:
+					parameter = _container.TransferParameters;
+					parameter.YParameter = 10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.S:
+					parameter = _container.TransferParameters;
+					parameter.YParameter = -10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.D:
+					parameter = _container.TransferParameters;
+					parameter.XParameter = 10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.A:
+					parameter = _container.TransferParameters;
+					parameter.XParameter = -10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.Z:
+					parameter = _container.RotationParameters;
+					parameter.XParameter = ToRadians(5);
+					TransformFigure(_figure, _container.RotateAroundX3D, parameter);
+					TransformFigure(_point3d, _container.RotateAroundX3D, parameter);
+					break;
+				case Keys.X:
+					parameter = _container.RotationParameters;
+					parameter.YParameter = ToRadians(5);
+					TransformFigure(_figure, _container.RotateAroundY3D, parameter);
+					TransformFigure(_point3d, _container.RotateAroundY3D, parameter);
+					break;
+				case Keys.C:
+					parameter = _container.RotationParameters;
+					parameter.ZParameter = ToRadians(5);
+					TransformFigure(_figure, _container.RotateAroundZ3D, parameter);
+					TransformFigure(_point3d, _container.RotateAroundZ3D, parameter);
+					break;
 				default:
 					break;
 			}
@@ -103,24 +144,25 @@ namespace Lab1
 
 		private void canvas_Paint(object sender, PaintEventArgs e)
 		{
-			_figure.Draw(e.Graphics, new PointF(100, 500));
-			_coords.Draw(e.Graphics, new PointF(100, 500));
+			_figure.Draw(e.Graphics, _coordsStartPoint);
+			_coords.Draw(e.Graphics, _coordsStartPoint);
+			_point3d.Draw(e.Graphics, _coordsStartPoint);
+			e.Graphics.DrawEllipse(new Pen(Color.Red, 5), _coordsStartPoint.X - 5, _coordsStartPoint.Y - 5, 10, 10);
+			
 		}
 
 
 		private void SystemToStartCondition()
 		{
-			Parameters<double> projectionParameters = new Parameters<double>(ToRadians(30), ToRadians(30), 0);
 			Parameters<double> scalingParameters = new Parameters<double>(30, 30, 30);
-			Parameters<double> transferParameters = new Parameters<double>(100, 100, 0);
 			Matrix<double> finalTransformation =
-				/*_container.AxonometricProjection.GetTransformation(projectionParameters) *
-				_container.ParallelTransfer3D.GetTransformation(transferParameters) **/
 				_container.Scaling3D.GetTransformation(scalingParameters);
 			_figure = _symbolBuilder.Build();
 			ApplyTransformation(_figure, finalTransformation);
-			_coords = _coordsBuilder.Build();
+			_coords = new CoordSystem(0, 0, 0, 25, 25, 25);
 			ApplyTransformation(_coords, finalTransformation);
+			_coordsStartPoint.X = 0;
+			_coordsStartPoint.Y = 0;
 			canvas.Invalidate();
 		}
 
@@ -134,8 +176,15 @@ namespace Lab1
 		private void MoveSystem(Parameters<double> parameters)
 		{
 			Matrix<double> matrix = _container.ParallelTransfer3D.GetTransformation(parameters);
-			ApplyTransformation(_figure, matrix);
-			ApplyTransformation(_coords, matrix);
+
+			_coordsStartPoint.X += (float)parameters.XParameter;
+			labelXTransfer.Text = _coordsStartPoint.X.ToString();
+
+			_coordsStartPoint.Y += (float)parameters.YParameter;
+			labelYTransfer.Text = _coordsStartPoint.Y.ToString();
+
+			//ApplyTransformation(_figure, matrix);
+			//ApplyTransformation(_coords, matrix);
 			canvas.Invalidate();
 		}
 
@@ -144,6 +193,7 @@ namespace Lab1
 			Matrix<double> matrix = _container.Scaling3D.GetTransformation(scaleParameter);
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
+			ApplyTransformation(_point3d, matrix);
 			canvas.Invalidate();
 		}
 
@@ -152,6 +202,7 @@ namespace Lab1
 			Matrix<double> matrix = _container.RotateAroundX3D.GetTransformation(parameters);
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
+			ApplyTransformation(_point3d, matrix);
 			canvas.Invalidate();
 		}
 
@@ -160,6 +211,7 @@ namespace Lab1
 			Matrix<double> matrix = _container.RotateAroundY3D.GetTransformation(parameters);
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
+			ApplyTransformation(_point3d, matrix);
 			canvas.Invalidate();
 		}
 
@@ -168,6 +220,21 @@ namespace Lab1
 			Matrix<double> matrix = _container.RotateAroundZ3D.GetTransformation(parameters);
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
+			ApplyTransformation(_point3d, matrix);
+			canvas.Invalidate();
+		}
+
+		private void MoveFigure(Figure<double> figure, Parameters<double> parameter)
+		{
+			Matrix<double> matrix = _container.ParallelTransfer3D.GetTransformation(parameter);
+			ApplyTransformation(figure, matrix);
+			canvas.Invalidate();
+		}
+
+		private void TransformFigure(Figure<double> figure, ITransformation<double> transformation, Parameters<double> parameters)
+		{
+			Matrix<double> matrix = transformation.GetTransformation(parameters);
+			ApplyTransformation(figure, matrix);
 			canvas.Invalidate();
 		}
 	}
