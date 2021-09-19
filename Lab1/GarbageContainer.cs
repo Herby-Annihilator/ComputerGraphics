@@ -16,25 +16,24 @@ namespace Lab1
 		public RotateAroundZ3d RotateAroundZ3D { get; private set; } = new RotateAroundZ3d();
 		public Scaling3d<double> Scaling3D { get; private set; } = new Scaling3d<double>();
 
-		private Parameters<double> _projectionParameters;
+		private Parameters<double> _projectionParameters = new Parameters<double>();
 		public Parameters<double> ProjectionParameters =>
-			_projectionParameters is null ? new Parameters<double>() :
 			FillBy(_projectionParameters, 0);
 
-		private Parameters<double> _transferParameters;
+		private Parameters<double> _transferParameters = new Parameters<double>();
 		public Parameters<double> TransferParameters =>
-			_transferParameters is null ? new Parameters<double>() :
 			FillBy(_transferParameters, 0);
 
-		private Parameters<double> _scalingParameters;
+
+		private Parameters<double> _scalingParameters = new Parameters<double>();
 		public Parameters<double> ScalingParameters =>
-			_scalingParameters is null ? new Parameters<double>() :
 			FillBy(_scalingParameters, 1);
 
-		private Parameters<double> _rotationParameters;
+
+		private Parameters<double> _rotationParameters = new Parameters<double>();
 		public Parameters<double> RotationParameters =>
-			_rotationParameters is null ? new Parameters<double>() :
 			FillBy(_rotationParameters, 0);
+
 
 
 		private Parameters<T> FillBy<T>(Parameters<T> parameter, T value)

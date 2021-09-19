@@ -81,13 +81,13 @@ namespace Lab1
 					break;
 				case Keys.W:
 					parameter = _container.TransferParameters;
-					parameter.YParameter = 10;
+					parameter.YParameter = -10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
 				case Keys.S:
 					parameter = _container.TransferParameters;
-					parameter.YParameter = -10;
+					parameter.YParameter = 10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
@@ -100,6 +100,18 @@ namespace Lab1
 				case Keys.A:
 					parameter = _container.TransferParameters;
 					parameter.XParameter = -10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.F1:
+					parameter = _container.TransferParameters;
+					parameter.ZParameter = -10;
+					MoveFigure(_point3d, parameter);
+					MoveFigure(_figure, parameter);
+					break;
+				case Keys.F2:
+					parameter = _container.TransferParameters;
+					parameter.ZParameter = 10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
@@ -160,6 +172,7 @@ namespace Lab1
 			_figure = _symbolBuilder.Build();
 			ApplyTransformation(_figure, finalTransformation);
 			_coords = new CoordSystem(0, 0, 0, 25, 25, 25);
+			_point3d = new Point3d(0, 0, 0, 5);
 			ApplyTransformation(_coords, finalTransformation);
 			_coordsStartPoint.X = 0;
 			_coordsStartPoint.Y = 0;
@@ -175,16 +188,12 @@ namespace Lab1
 
 		private void MoveSystem(Parameters<double> parameters)
 		{
-			Matrix<double> matrix = _container.ParallelTransfer3D.GetTransformation(parameters);
-
 			_coordsStartPoint.X += (float)parameters.XParameter;
 			labelXTransfer.Text = _coordsStartPoint.X.ToString();
 
 			_coordsStartPoint.Y += (float)parameters.YParameter;
 			labelYTransfer.Text = _coordsStartPoint.Y.ToString();
 
-			//ApplyTransformation(_figure, matrix);
-			//ApplyTransformation(_coords, matrix);
 			canvas.Invalidate();
 		}
 

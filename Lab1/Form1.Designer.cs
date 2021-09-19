@@ -53,6 +53,12 @@ namespace Lab1
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.labelZTransfer = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.labellabelZFigureTransfer = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.labelYFigureTransfer = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
 			this.labelXFigureTransfer = new System.Windows.Forms.Label();
 			this.labelYTransfer = new System.Windows.Forms.Label();
 			this.labelXTransfer = new System.Windows.Forms.Label();
@@ -61,12 +67,6 @@ namespace Lab1
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.labelYFigureTransfer = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.labellabelZFigureTransfer = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.labelZTransfer = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -339,6 +339,63 @@ namespace Lab1
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Перемещение";
 			// 
+			// labelZTransfer
+			// 
+			this.labelZTransfer.AutoSize = true;
+			this.labelZTransfer.Location = new System.Drawing.Point(161, 52);
+			this.labelZTransfer.Name = "labelZTransfer";
+			this.labelZTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelZTransfer.TabIndex = 11;
+			this.labelZTransfer.Text = "label13";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.label14.Location = new System.Drawing.Point(7, 52);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(148, 15);
+			this.label14.TabIndex = 10;
+			this.label14.Text = "Смещение системы по Z:";
+			// 
+			// labellabelZFigureTransfer
+			// 
+			this.labellabelZFigureTransfer.AutoSize = true;
+			this.labellabelZFigureTransfer.Location = new System.Drawing.Point(147, 144);
+			this.labellabelZFigureTransfer.Name = "labellabelZFigureTransfer";
+			this.labellabelZFigureTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labellabelZFigureTransfer.TabIndex = 9;
+			this.labellabelZFigureTransfer.Text = "label14";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.label15.Location = new System.Drawing.Point(7, 144);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(134, 15);
+			this.label15.TabIndex = 8;
+			this.label15.Text = "Смещение буквы по Z:";
+			// 
+			// labelYFigureTransfer
+			// 
+			this.labelYFigureTransfer.AutoSize = true;
+			this.labelYFigureTransfer.Location = new System.Drawing.Point(147, 129);
+			this.labelYFigureTransfer.Name = "labelYFigureTransfer";
+			this.labelYFigureTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelYFigureTransfer.TabIndex = 7;
+			this.labelYFigureTransfer.Text = "label14";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.ForeColor = System.Drawing.Color.Red;
+			this.label13.Location = new System.Drawing.Point(7, 129);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(134, 15);
+			this.label13.TabIndex = 6;
+			this.label13.Text = "Смещение буквы по Y:";
+			// 
 			// labelXFigureTransfer
 			// 
 			this.labelXFigureTransfer.AutoSize = true;
@@ -369,6 +426,7 @@ namespace Lab1
 			// label11
 			// 
 			this.label11.AutoSize = true;
+			this.label11.ForeColor = System.Drawing.Color.Blue;
 			this.label11.Location = new System.Drawing.Point(6, 114);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(134, 15);
@@ -378,6 +436,7 @@ namespace Lab1
 			// label10
 			// 
 			this.label10.AutoSize = true;
+			this.label10.ForeColor = System.Drawing.Color.Red;
 			this.label10.Location = new System.Drawing.Point(6, 37);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(148, 15);
@@ -387,6 +446,7 @@ namespace Lab1
 			// label7
 			// 
 			this.label7.AutoSize = true;
+			this.label7.ForeColor = System.Drawing.Color.Blue;
 			this.label7.Location = new System.Drawing.Point(6, 22);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(148, 15);
@@ -410,60 +470,6 @@ namespace Lab1
 			this.label9.Size = new System.Drawing.Size(97, 15);
 			this.label9.TabIndex = 2;
 			this.label9.Text = "Смещение по Х:";
-			// 
-			// labelYFigureTransfer
-			// 
-			this.labelYFigureTransfer.AutoSize = true;
-			this.labelYFigureTransfer.Location = new System.Drawing.Point(147, 129);
-			this.labelYFigureTransfer.Name = "labelYFigureTransfer";
-			this.labelYFigureTransfer.Size = new System.Drawing.Size(44, 15);
-			this.labelYFigureTransfer.TabIndex = 7;
-			this.labelYFigureTransfer.Text = "label14";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(7, 129);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(134, 15);
-			this.label13.TabIndex = 6;
-			this.label13.Text = "Смещение буквы по Y:";
-			// 
-			// labellabelZFigureTransfer
-			// 
-			this.labellabelZFigureTransfer.AutoSize = true;
-			this.labellabelZFigureTransfer.Location = new System.Drawing.Point(147, 144);
-			this.labellabelZFigureTransfer.Name = "labellabelZFigureTransfer";
-			this.labellabelZFigureTransfer.Size = new System.Drawing.Size(44, 15);
-			this.labellabelZFigureTransfer.TabIndex = 9;
-			this.labellabelZFigureTransfer.Text = "label14";
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(7, 144);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(134, 15);
-			this.label15.TabIndex = 8;
-			this.label15.Text = "Смещение буквы по Z:";
-			// 
-			// labelZTransfer
-			// 
-			this.labelZTransfer.AutoSize = true;
-			this.labelZTransfer.Location = new System.Drawing.Point(161, 52);
-			this.labelZTransfer.Name = "labelZTransfer";
-			this.labelZTransfer.Size = new System.Drawing.Size(44, 15);
-			this.labelZTransfer.TabIndex = 11;
-			this.labelZTransfer.Text = "label13";
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(7, 52);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(148, 15);
-			this.label14.TabIndex = 10;
-			this.label14.Text = "Смещение системы по Z:";
 			// 
 			// Form1
 			// 
