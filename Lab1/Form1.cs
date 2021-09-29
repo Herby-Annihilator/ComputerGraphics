@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Lab1.Infrastructure.Transformations.Projection;
 using Lab1.Infrastructure.Transformations.AffineTransformations.AffineTransformations3D;
 using MathNet.Numerics.LinearAlgebra;
+using System.Drawing.Drawing2D;
 
 namespace Lab1
 {
@@ -29,7 +30,11 @@ namespace Lab1
 		public Form1()
 		{
 			InitializeComponent();
-			_symbolBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\bin\\Debug\\netcoreapp3.1\\figure.txt");
+			this.SetStyle(ControlStyles.UserPaint, true);
+			this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+			this.SetStyle(ControlStyles.DoubleBuffer, true);
+			this.UpdateStyles();
+			_symbolBuilder = new FigureFromFileBuilder("C:\\Users\\Rukin\\Projects\\VisualStudio\\semester_7\\ComputerGraphics\\figure.txt");
 			_figure = _symbolBuilder.Build();
 			SystemToStartCondition();
 			this.MouseWheel += Form1_MouseWheel;
@@ -156,11 +161,24 @@ namespace Lab1
 
 		private void canvas_Paint(object sender, PaintEventArgs e)
 		{
-			_figure.Draw(e.Graphics, _coordsStartPoint);
-			_coords.Draw(e.Graphics, _coordsStartPoint);
-			_point3d.Draw(e.Graphics, _coordsStartPoint);
-			e.Graphics.DrawEllipse(new Pen(Color.Red, 5), _coordsStartPoint.X - 5, _coordsStartPoint.Y - 5, 10, 10);
-			
+			Graphics g = e.Graphics;
+			g.SmoothingMode = SmoothingMode.HighQuality;
+			g.CompositingQuality = CompositingQuality.HighQuality;
+
+			_figure.Draw(g, _coordsStartPoint);
+			_coords.Draw(g, _coordsStartPoint);
+			_point3d.Draw(g, _coordsStartPoint);
+			g.DrawEllipse(new Pen(Color.Red, 5), _coordsStartPoint.X - 5, _coordsStartPoint.Y - 5, 10, 10);
+		}
+
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				var cp = base.CreateParams;
+				cp.ExStyle |= 0x02000000;    // WS_EX_COMPOSITED
+				return cp;
+			}
 		}
 
 
@@ -176,7 +194,7 @@ namespace Lab1
 			ApplyTransformation(_coords, finalTransformation);
 			_coordsStartPoint.X = 0;
 			_coordsStartPoint.Y = 0;
-			canvas.Invalidate();
+			canvas.Refresh();
 		}
 
 		private double ToRadians(double value) => value * (Math.PI / 180);
@@ -212,7 +230,7 @@ namespace Lab1
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
 			ApplyTransformation(_point3d, matrix);
-			canvas.Invalidate();
+			canvas.Refresh();
 		}
 
 		private void RotateSystemAroundY(Parameters<double> parameters)
@@ -221,7 +239,7 @@ namespace Lab1
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
 			ApplyTransformation(_point3d, matrix);
-			canvas.Invalidate();
+			canvas.Refresh();
 		}
 
 		private void RotateSystemAroundZ(Parameters<double> parameters)
@@ -230,7 +248,7 @@ namespace Lab1
 			ApplyTransformation(_figure, matrix);
 			ApplyTransformation(_coords, matrix);
 			ApplyTransformation(_point3d, matrix);
-			canvas.Invalidate();
+			canvas.Refresh();
 		}
 
 		private void MoveFigure(Figure<double> figure, Parameters<double> parameter)
