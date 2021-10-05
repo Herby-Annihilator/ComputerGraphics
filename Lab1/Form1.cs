@@ -34,7 +34,7 @@ namespace Lab1
 			this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 			this.SetStyle(ControlStyles.DoubleBuffer, true);
 			this.UpdateStyles();
-			_symbolBuilder = new FigureFromFileBuilder("C:\\Users\\Rukin\\Projects\\VisualStudio\\semester_7\\ComputerGraphics\\figure.txt");
+			_symbolBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\figure.txt");
 			_figure = _symbolBuilder.Build();
 			SystemToStartCondition();
 			this.MouseWheel += Form1_MouseWheel;

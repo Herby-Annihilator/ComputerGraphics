@@ -17,6 +17,6 @@ namespace Lab1.Infrastructure.Abstractions
 		public virtual Pen Pen { get => _pen; set => _pen = value; }
 
 		public abstract Figure<T> Clone();
-		public abstract void Draw(Graphics graphics, PointF startPoint);
+		public abstract void Draw(Graphics graphics, PointF startPoint); 
 	}
 }

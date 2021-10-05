@@ -12,9 +12,11 @@ namespace Lab1.Infrastructure.Transformations.Projection
 		private Matrix<double> _matrix;
 		public Matrix<double> GetTransformation(Parameters<double> parameters)
 		{
-			ITransformation<double> xRotate = new RotateAroundX3d();
-			ITransformation<double> yRotate = new RotateAroundY3d();
-			_matrix = xRotate.GetTransformation(parameters) * yRotate.GetTransformation(parameters);
+			if (_matrix == null)
+				_matrix = CreateMatrix.DenseIdentity<double>(4, 4);
+			_matrix[2, 0] = -0.5 * Math.Cos(parameters.XParameter);
+			_matrix[2, 1] = -0.5 * Math.Sin(parameters.XParameter);			
+			_matrix[2, 2] = 0;			
 			return _matrix;
 		}
 	}
