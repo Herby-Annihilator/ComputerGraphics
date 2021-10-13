@@ -17,6 +17,14 @@ namespace Lab1.Infrastructure.Abstractions
 		public virtual Pen Pen { get => _pen; set => _pen = value; }
 
 		public abstract Figure<T> Clone();
-		public abstract void Draw(Graphics graphics, PointF startPoint); 
+		public abstract void Draw(Graphics graphics, PointF startPoint);
+
+		protected abstract Vector<T> CenterPointRadiusVector(T x1, T x2, T y1, T y2, T z1, T z2);
+
+		public abstract T Perimeter();
+
+		protected abstract T EdgeLength(Vector<T> firstPoint, Vector<T> secondPoint);
+
+		public abstract Vector<T> CenterOfMass();
 	}
 }

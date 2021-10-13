@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Lab1.Infrastructure.Figures
 {
-	public class Point3d : Figure<double>
+	public class Point3d : DoubleFigure3d
 	{
 		private int _width;
 		public override Figure<double> Clone()
@@ -19,7 +19,7 @@ namespace Lab1.Infrastructure.Figures
 			return result;
 		}
 
-		public Point3d(double centerX, double centerY, double centerZ, int width)
+		public Point3d(double centerX, double centerY, double centerZ, int width)  // 3д точка - это просто столбец с четырьмя строками
 		{
 			_width = width;
 			Vertexes = CreateMatrix.Dense<double>(4, 1);
@@ -38,5 +38,9 @@ namespace Lab1.Infrastructure.Figures
 			float centerY = (float)Vertexes[1, 0];
 			graphics.DrawEllipse(Pen, centerX + startPoint.X - 3, centerY + startPoint.Y - 3, 6, 6);
 		}
+
+		public override double Perimeter() => 0;
+
+		public override Vector<double> CenterOfMass() => CreateVector.DenseOfArray(new double[] { Vertexes[0, 0], Vertexes[1, 0], Vertexes[0, 2] });
 	}
 }
