@@ -138,6 +138,22 @@ namespace Lab1
 					TransformFigure(_figure, _container.RotateAroundZ3D, parameter);
 					TransformFigure(_point3d, _container.RotateAroundZ3D, parameter);
 					break;
+				case Keys.F3:
+					parameter = _container.ScalingParameters;
+					parameter.XParameter = 2;
+					parameter.YParameter = 2;
+					parameter.ZParameter = 2;
+					TransformFigure(_figure, _container.Scaling3D, parameter);
+					TransformFigure(_point3d, _container.Scaling3D, parameter);
+					break;
+				case Keys.F4:
+					parameter = _container.ScalingParameters;
+					parameter.XParameter = 0.5;
+					parameter.YParameter = 0.5;
+					parameter.ZParameter = 0.5;
+					TransformFigure(_figure, _container.Scaling3D, parameter);
+					TransformFigure(_point3d, _container.Scaling3D, parameter);
+					break;
 				default:
 					break;
 			}
