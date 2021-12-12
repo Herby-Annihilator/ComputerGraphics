@@ -10,8 +10,6 @@ namespace Lab1.Infrastructure.Figures
 {
 	public class CoordSystem : Symbol
 	{
-		AxonometricProjection _projection = new AxonometricProjection();
-		Parameters<double> _params = new Parameters<double>();
 		public CoordSystem(double x, double y, double z, int width, int height, int capacity)
 		{
 			Vertexes = CreateMatrix.Dense<double>(4, 4);
@@ -69,13 +67,6 @@ namespace Lab1.Infrastructure.Figures
 					(float)y1 + startPoint.Y, (float)x2 + startPoint.X,
 					(float)y2 + startPoint.Y);
 			}
-		}
-
-		private Matrix<double> ToProection()
-		{
-			Matrix<double> result = Vertexes.Clone();
-			_params.XParameter = 30 * (Math.PI / 180);
-			return _projection.GetTransformation(_params).Transpose() * result;
 		}
 	}
 }

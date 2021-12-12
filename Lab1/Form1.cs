@@ -34,7 +34,7 @@ namespace Lab1
 			this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 			this.SetStyle(ControlStyles.DoubleBuffer, true);
 			this.UpdateStyles();
-			_symbolBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\VisualStudio\\Semester_7\\ComputerGraphics\\figure.txt");
+			_symbolBuilder = new FigureFromFileBuilder("D:\\GarbageCan\\Projects\\ComputerGraphics\\figure.txt");
 			_figure = _symbolBuilder.Build();
 			SystemToStartCondition();
 			this.MouseWheel += Form1_MouseWheel;
@@ -181,10 +181,10 @@ namespace Lab1
 			g.SmoothingMode = SmoothingMode.HighQuality;
 			g.CompositingQuality = CompositingQuality.HighQuality;
 
+			g.DrawEllipse(new Pen(Color.Red, 6), _coordsStartPoint.X - 3, _coordsStartPoint.Y - 3, 6, 6);
 			_figure.Draw(g, _coordsStartPoint);
 			_coords.Draw(g, _coordsStartPoint);
 			_point3d.Draw(g, _coordsStartPoint);
-			g.DrawEllipse(new Pen(Color.Red, 5), _coordsStartPoint.X - 5, _coordsStartPoint.Y - 5, 10, 10);
 		}
 
 		protected override CreateParams CreateParams
@@ -200,16 +200,27 @@ namespace Lab1
 
 		private void SystemToStartCondition()
 		{
-			Parameters<double> scalingParameters = new Parameters<double>(30, 30, 30);
-			Matrix<double> finalTransformation =
-				_container.Scaling3D.GetTransformation(scalingParameters);
-			_figure = _symbolBuilder.Build();
-			ApplyTransformation(_figure, finalTransformation);
+			_figure = _symbolBuilder.Build();			
 			_coords = new CoordSystem(0, 0, 0, 25, 25, 25);
 			_point3d = new Point3d(0, 0, 0, 5);
+			_coordsStartPoint.X = 500;
+			_coordsStartPoint.Y = 500;
+			Parameters<double> parameters = new Parameters<double>(30, 30, 30);
+			Matrix<double> finalTransformation =
+				_container.Scaling3D.GetTransformation(parameters);
+			ApplyTransformation(_figure, finalTransformation);
 			ApplyTransformation(_coords, finalTransformation);
-			_coordsStartPoint.X = 0;
-			_coordsStartPoint.Y = 0;
+
+			parameters = _container.RotationParameters;
+			parameters.XParameter = ToRadians(180);
+			parameters.YParameter = ToRadians(-45);
+
+			finalTransformation = _container.RotateAroundX3D.GetTransformation(parameters);
+			//finalTransformation *= _container.RotateAroundY3D.GetTransformation(parameters);
+
+			ApplyTransformation(_figure, finalTransformation);
+			ApplyTransformation(_coords, finalTransformation);
+			ApplyTransformation(_point3d, finalTransformation);
 			canvas.Refresh();
 		}
 
@@ -223,9 +234,8 @@ namespace Lab1
 		private void MoveSystem(Parameters<double> parameters)
 		{
 			_coordsStartPoint.X += (float)parameters.XParameter;
-			labelXTransfer.Text = _coordsStartPoint.X.ToString();
-
 			_coordsStartPoint.Y += (float)parameters.YParameter;
+			labelXTransfer.Text = _coordsStartPoint.X.ToString();
 			labelYTransfer.Text = _coordsStartPoint.Y.ToString();
 
 			canvas.Invalidate();

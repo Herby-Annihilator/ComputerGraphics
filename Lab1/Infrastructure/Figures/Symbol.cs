@@ -11,8 +11,6 @@ namespace Lab1.Infrastructure.Figures
 {
 	public class Symbol : DoubleFigure3d
 	{
-		AxonometricProjection _projection = new AxonometricProjection();
-		Parameters<double> _params = new Parameters<double>();
 
 		public override Vector<double> CenterOfMass()
 		{
@@ -93,13 +91,6 @@ namespace Lab1.Infrastructure.Figures
 				sum += EdgeLength(firstPoint, secondPoint);
 			}
 			return sum;
-		}
-
-		private Matrix<double> ToProection()
-		{
-			Matrix<double> result = Vertexes.Clone();
-			_params.XParameter = 30 * (Math.PI / 180);
-			return _projection.GetTransformation(_params).Transpose() * result;
 		}
 	}
 }

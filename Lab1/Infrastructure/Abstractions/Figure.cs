@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using Lab1.Infrastructure.Transformations.Projection;
 using MathNet.Numerics.LinearAlgebra;
 
 namespace Lab1.Infrastructure.Abstractions
@@ -26,5 +27,7 @@ namespace Lab1.Infrastructure.Abstractions
 		protected abstract T EdgeLength(Vector<T> firstPoint, Vector<T> secondPoint);
 
 		public abstract Vector<T> CenterOfMass();
+
+		protected abstract Matrix<double> ToProection();
 	}
 }

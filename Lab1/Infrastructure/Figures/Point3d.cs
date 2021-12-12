@@ -1,5 +1,6 @@
 ﻿using Lab1.Infrastructure.Abstractions;
 using Lab1.Infrastructure.Extensions;
+using Lab1.Infrastructure.Transformations.Projection;
 using MathNet.Numerics.LinearAlgebra;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace Lab1.Infrastructure.Figures
 {
 	public class Point3d : DoubleFigure3d
 	{
+		public double X { get => Vertexes[0, 0]; set => Vertexes[0, 0] = value; }
+		public double Y { get => Vertexes[1, 0]; set => Vertexes[1, 0] = value; }
+		public double Z { get => Vertexes[2, 0]; set => Vertexes[2, 0] = value; }
+
+		private Color _color = Color.Blue;
+
 		private int _width;
 		public override Figure<double> Clone()
 		{
@@ -30,12 +37,18 @@ namespace Lab1.Infrastructure.Figures
 			Edges = new int[0][];
 		}
 
+		public Point3d(double centerX, double centerY, double centerZ, int width, Color color) : this(centerX, centerY, centerZ, width)
+		{
+			_color = color;
+		}
+
 		public override void Draw(Graphics graphics, PointF startPoint)
 		{
 			Pen.Width = _width;
-			Pen.Color = Color.Blue;
-			float centerX = (float)Vertexes[0, 0];
-			float centerY = (float)Vertexes[1, 0];
+			Pen.Color = _color;
+			Matrix<double> toDraw = ToProection();
+			float centerX = (float)toDraw[0, 0];
+			float centerY = (float)toDraw[1, 0];
 			graphics.DrawEllipse(Pen, centerX + startPoint.X - 3, centerY + startPoint.Y - 3, 6, 6);
 		}
 
