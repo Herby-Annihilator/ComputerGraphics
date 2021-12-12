@@ -245,5 +245,10 @@ namespace Lab1
 			ApplyTransformation(figure, matrix);
 			canvas.Invalidate();
 		}
+
+		private void AnimateButton_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
