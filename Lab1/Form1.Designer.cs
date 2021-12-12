@@ -46,15 +46,11 @@ namespace Lab1
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.labelZScaling = new System.Windows.Forms.Label();
 			this.labelYScaling = new System.Windows.Forms.Label();
 			this.labelXScaling = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.labelZTransfer = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
 			this.labellabelZFigureTransfer = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.labelYFigureTransfer = new System.Windows.Forms.Label();
@@ -85,7 +81,7 @@ namespace Lab1
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1458, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -114,10 +110,10 @@ namespace Lab1
 			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 593);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 710);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-			this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1458, 22);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -140,7 +136,7 @@ namespace Lab1
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 569);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1458, 686);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// canvas
@@ -150,7 +146,7 @@ namespace Lab1
 			this.canvas.Location = new System.Drawing.Point(303, 2);
 			this.canvas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.canvas.Name = "canvas";
-			this.canvas.Size = new System.Drawing.Size(794, 565);
+			this.canvas.Size = new System.Drawing.Size(1152, 682);
 			this.canvas.TabIndex = 0;
 			this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
 			// 
@@ -168,7 +164,7 @@ namespace Lab1
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 563);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 680);
 			this.tableLayoutPanel3.TabIndex = 2;
 			// 
 			// groupBox4
@@ -180,11 +176,11 @@ namespace Lab1
 			this.groupBox4.Controls.Add(this.label2);
 			this.groupBox4.Controls.Add(this.label1);
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox4.Location = new System.Drawing.Point(3, 376);
+			this.groupBox4.Location = new System.Drawing.Point(3, 454);
 			this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.groupBox4.Size = new System.Drawing.Size(288, 185);
+			this.groupBox4.Size = new System.Drawing.Size(288, 224);
 			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Вращение";
@@ -194,131 +190,109 @@ namespace Lab1
 			this.labelZIncline.AutoSize = true;
 			this.labelZIncline.Location = new System.Drawing.Point(125, 52);
 			this.labelZIncline.Name = "labelZIncline";
-			this.labelZIncline.Size = new System.Drawing.Size(38, 15);
+			this.labelZIncline.Size = new System.Drawing.Size(15, 15);
 			this.labelZIncline.TabIndex = 5;
-			this.labelZIncline.Text = "label6";
+			this.labelZIncline.Text = "C";
 			// 
 			// labelYIncline
 			// 
 			this.labelYIncline.AutoSize = true;
 			this.labelYIncline.Location = new System.Drawing.Point(125, 37);
 			this.labelYIncline.Name = "labelYIncline";
-			this.labelYIncline.Size = new System.Drawing.Size(38, 15);
+			this.labelYIncline.Size = new System.Drawing.Size(14, 15);
 			this.labelYIncline.TabIndex = 4;
-			this.labelYIncline.Text = "label5";
+			this.labelYIncline.Text = "X";
 			// 
 			// labelXIncline
 			// 
 			this.labelXIncline.AutoSize = true;
 			this.labelXIncline.Location = new System.Drawing.Point(125, 22);
 			this.labelXIncline.Name = "labelXIncline";
-			this.labelXIncline.Size = new System.Drawing.Size(38, 15);
+			this.labelXIncline.Size = new System.Drawing.Size(14, 15);
 			this.labelXIncline.TabIndex = 3;
-			this.labelXIncline.Text = "label4";
+			this.labelXIncline.Text = "Z";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(7, 52);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(112, 15);
+			this.label3.Size = new System.Drawing.Size(119, 15);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Угол наклона по Z:";
+			this.label3.Text = "Повернуть вокруг Z:";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(7, 37);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(112, 15);
+			this.label2.Size = new System.Drawing.Size(119, 15);
 			this.label2.TabIndex = 1;
-			this.label2.Text = "Угол наклона по Y:";
+			this.label2.Text = "Повернуть вокруг Y:";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(7, 22);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(112, 15);
+			this.label1.Size = new System.Drawing.Size(119, 15);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Угол наклона по Х:";
+			this.label1.Text = "Повернуть вокруг X:";
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.labelZScaling);
 			this.groupBox3.Controls.Add(this.labelYScaling);
 			this.groupBox3.Controls.Add(this.labelXScaling);
-			this.groupBox3.Controls.Add(this.label6);
 			this.groupBox3.Controls.Add(this.label5);
 			this.groupBox3.Controls.Add(this.label4);
 			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox3.Location = new System.Drawing.Point(3, 189);
+			this.groupBox3.Location = new System.Drawing.Point(3, 228);
 			this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.groupBox3.Size = new System.Drawing.Size(288, 183);
+			this.groupBox3.Size = new System.Drawing.Size(288, 222);
 			this.groupBox3.TabIndex = 1;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Масштабирование";
-			// 
-			// labelZScaling
-			// 
-			this.labelZScaling.AutoSize = true;
-			this.labelZScaling.Location = new System.Drawing.Point(116, 52);
-			this.labelZScaling.Name = "labelZScaling";
-			this.labelZScaling.Size = new System.Drawing.Size(38, 15);
-			this.labelZScaling.TabIndex = 5;
-			this.labelZScaling.Text = "label9";
 			// 
 			// labelYScaling
 			// 
 			this.labelYScaling.AutoSize = true;
 			this.labelYScaling.Location = new System.Drawing.Point(116, 37);
 			this.labelYScaling.Name = "labelYScaling";
-			this.labelYScaling.Size = new System.Drawing.Size(38, 15);
+			this.labelYScaling.Size = new System.Drawing.Size(19, 15);
 			this.labelYScaling.TabIndex = 4;
-			this.labelYScaling.Text = "label8";
+			this.labelYScaling.Text = "F4";
 			// 
 			// labelXScaling
 			// 
 			this.labelXScaling.AutoSize = true;
 			this.labelXScaling.Location = new System.Drawing.Point(116, 22);
 			this.labelXScaling.Name = "labelXScaling";
-			this.labelXScaling.Size = new System.Drawing.Size(38, 15);
+			this.labelXScaling.Size = new System.Drawing.Size(19, 15);
 			this.labelXScaling.TabIndex = 3;
-			this.labelXScaling.Text = "label7";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(7, 52);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(103, 15);
-			this.label6.TabIndex = 2;
-			this.label6.Text = "Увеличение по Z:";
+			this.labelXScaling.Text = "F3";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(7, 37);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(103, 15);
+			this.label5.Size = new System.Drawing.Size(74, 15);
 			this.label5.TabIndex = 1;
-			this.label5.Text = "Увеличение по Y:";
+			this.label5.Text = "Уменьшить:";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(7, 22);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(103, 15);
+			this.label4.Size = new System.Drawing.Size(68, 15);
 			this.label4.TabIndex = 0;
-			this.label4.Text = "Увеличение по Х:";
+			this.label4.Text = "Увеличить:";
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.labelZTransfer);
-			this.groupBox2.Controls.Add(this.label14);
 			this.groupBox2.Controls.Add(this.labellabelZFigureTransfer);
 			this.groupBox2.Controls.Add(this.label15);
 			this.groupBox2.Controls.Add(this.labelYFigureTransfer);
@@ -334,44 +308,25 @@ namespace Lab1
 			this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.groupBox2.Size = new System.Drawing.Size(288, 183);
+			this.groupBox2.Size = new System.Drawing.Size(288, 222);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Перемещение";
 			// 
-			// labelZTransfer
-			// 
-			this.labelZTransfer.AutoSize = true;
-			this.labelZTransfer.Location = new System.Drawing.Point(161, 52);
-			this.labelZTransfer.Name = "labelZTransfer";
-			this.labelZTransfer.Size = new System.Drawing.Size(44, 15);
-			this.labelZTransfer.TabIndex = 11;
-			this.labelZTransfer.Text = "label13";
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			this.label14.Location = new System.Drawing.Point(7, 52);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(148, 15);
-			this.label14.TabIndex = 10;
-			this.label14.Text = "Смещение системы по Z:";
-			// 
 			// labellabelZFigureTransfer
 			// 
 			this.labellabelZFigureTransfer.AutoSize = true;
-			this.labellabelZFigureTransfer.Location = new System.Drawing.Point(147, 144);
+			this.labellabelZFigureTransfer.Location = new System.Drawing.Point(146, 104);
 			this.labellabelZFigureTransfer.Name = "labellabelZFigureTransfer";
-			this.labellabelZFigureTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labellabelZFigureTransfer.Size = new System.Drawing.Size(37, 15);
 			this.labellabelZFigureTransfer.TabIndex = 9;
-			this.labellabelZFigureTransfer.Text = "label14";
+			this.labellabelZFigureTransfer.Text = "F1, F2";
 			// 
 			// label15
 			// 
 			this.label15.AutoSize = true;
 			this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			this.label15.Location = new System.Drawing.Point(7, 144);
+			this.label15.Location = new System.Drawing.Point(6, 104);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(134, 15);
 			this.label15.TabIndex = 8;
@@ -380,17 +335,17 @@ namespace Lab1
 			// labelYFigureTransfer
 			// 
 			this.labelYFigureTransfer.AutoSize = true;
-			this.labelYFigureTransfer.Location = new System.Drawing.Point(147, 129);
+			this.labelYFigureTransfer.Location = new System.Drawing.Point(146, 89);
 			this.labelYFigureTransfer.Name = "labelYFigureTransfer";
-			this.labelYFigureTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelYFigureTransfer.Size = new System.Drawing.Size(30, 15);
 			this.labelYFigureTransfer.TabIndex = 7;
-			this.labelYFigureTransfer.Text = "label14";
+			this.labelYFigureTransfer.Text = "W, S";
 			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
 			this.label13.ForeColor = System.Drawing.Color.Red;
-			this.label13.Location = new System.Drawing.Point(7, 129);
+			this.label13.Location = new System.Drawing.Point(6, 89);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(134, 15);
 			this.label13.TabIndex = 6;
@@ -399,35 +354,35 @@ namespace Lab1
 			// labelXFigureTransfer
 			// 
 			this.labelXFigureTransfer.AutoSize = true;
-			this.labelXFigureTransfer.Location = new System.Drawing.Point(146, 114);
+			this.labelXFigureTransfer.Location = new System.Drawing.Point(145, 74);
 			this.labelXFigureTransfer.Name = "labelXFigureTransfer";
-			this.labelXFigureTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelXFigureTransfer.Size = new System.Drawing.Size(29, 15);
 			this.labelXFigureTransfer.TabIndex = 5;
-			this.labelXFigureTransfer.Text = "label14";
+			this.labelXFigureTransfer.Text = "A, D";
 			// 
 			// labelYTransfer
 			// 
 			this.labelYTransfer.AutoSize = true;
-			this.labelYTransfer.Location = new System.Drawing.Point(160, 37);
+			this.labelYTransfer.Location = new System.Drawing.Point(159, 37);
 			this.labelYTransfer.Name = "labelYTransfer";
-			this.labelYTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelYTransfer.Size = new System.Drawing.Size(22, 15);
 			this.labelYTransfer.TabIndex = 4;
-			this.labelYTransfer.Text = "label13";
+			this.labelYTransfer.Text = "↓ ↑";
 			// 
 			// labelXTransfer
 			// 
 			this.labelXTransfer.AutoSize = true;
 			this.labelXTransfer.Location = new System.Drawing.Point(160, 22);
 			this.labelXTransfer.Name = "labelXTransfer";
-			this.labelXTransfer.Size = new System.Drawing.Size(44, 15);
+			this.labelXTransfer.Size = new System.Drawing.Size(30, 15);
 			this.labelXTransfer.TabIndex = 3;
-			this.labelXTransfer.Text = "label12";
+			this.labelXTransfer.Text = "← →";
 			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
 			this.label11.ForeColor = System.Drawing.Color.Blue;
-			this.label11.Location = new System.Drawing.Point(6, 114);
+			this.label11.Location = new System.Drawing.Point(5, 74);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(134, 15);
 			this.label11.TabIndex = 2;
@@ -437,7 +392,7 @@ namespace Lab1
 			// 
 			this.label10.AutoSize = true;
 			this.label10.ForeColor = System.Drawing.Color.Red;
-			this.label10.Location = new System.Drawing.Point(6, 37);
+			this.label10.Location = new System.Drawing.Point(5, 37);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(148, 15);
 			this.label10.TabIndex = 1;
@@ -475,7 +430,7 @@ namespace Lab1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 615);
+			this.ClientSize = new System.Drawing.Size(1458, 732);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
@@ -519,10 +474,8 @@ namespace Lab1
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label labelZScaling;
 		private System.Windows.Forms.Label labelYScaling;
 		private System.Windows.Forms.Label labelXScaling;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label labelZIncline;
@@ -538,8 +491,6 @@ namespace Lab1
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label labelYFigureTransfer;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Label labelZTransfer;
-		private System.Windows.Forms.Label label14;
 	}
 }
 

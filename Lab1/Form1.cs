@@ -46,99 +46,84 @@ namespace Lab1
 			Parameters<double> parameter;
 			switch (e.KeyCode)
 			{
-				case Keys.Up:
+				case Keys.Up:  // система вверх
 					parameter = _container.TransferParameters;
 					parameter.YParameter = -10;
 					MoveSystem(parameter);
 					break;
-				case Keys.Down:
+				case Keys.Down:  // система вниз
 					parameter = _container.TransferParameters;
 					parameter.YParameter = 10;
 					MoveSystem(parameter);
 					break;
-				case Keys.Left:
+				case Keys.Left:  // система влево
 					parameter = _container.TransferParameters;
 					parameter.XParameter = -10;
 					MoveSystem(parameter);
 					break;
-				case Keys.Right:
+				case Keys.Right:  // система вправо
 					parameter = _container.TransferParameters;
 					parameter.XParameter = 10;
 					MoveSystem(parameter);
 					break;
-				case Keys.D1:
-					parameter = _container.RotationParameters;
-					parameter.XParameter = ToRadians(5);
-					RotateSystemAroundX(parameter);
-					break;
-				case Keys.D2:
-					parameter = _container.RotationParameters;
-					parameter.YParameter = ToRadians(5);
-					RotateSystemAroundY(parameter);
-					break;
-				case Keys.D3:
-					parameter = _container.RotationParameters;
-					parameter.ZParameter = ToRadians(5);
-					RotateSystemAroundZ(parameter);
-					break;
-				case Keys.Escape:
+				case Keys.Escape:  // вернуть как было
 					SystemToStartCondition();
 					break;
-				case Keys.W:
+				case Keys.W:  // фигура вверх
 					parameter = _container.TransferParameters;
 					parameter.YParameter = -10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.S:
+				case Keys.S:  // фигура вниз
 					parameter = _container.TransferParameters;
 					parameter.YParameter = 10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.D:
+				case Keys.D:  // фигура вправо
 					parameter = _container.TransferParameters;
 					parameter.XParameter = 10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.A:
+				case Keys.A:  // фигура влево
 					parameter = _container.TransferParameters;
 					parameter.XParameter = -10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.F1:
+				case Keys.F1:  // // фигура вверх по Z
 					parameter = _container.TransferParameters;
 					parameter.ZParameter = -10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.F2:
+				case Keys.F2:  // // фигура вниз по Z
 					parameter = _container.TransferParameters;
 					parameter.ZParameter = 10;
 					MoveFigure(_point3d, parameter);
 					MoveFigure(_figure, parameter);
 					break;
-				case Keys.Z:
+				case Keys.Z:  // повернуть фигуру по X
 					parameter = _container.RotationParameters;
 					parameter.XParameter = ToRadians(5);
 					TransformFigure(_figure, _container.RotateAroundX3D, parameter);
 					TransformFigure(_point3d, _container.RotateAroundX3D, parameter);
 					break;
-				case Keys.X:
+				case Keys.X:  // повернуть фигуру по Y
 					parameter = _container.RotationParameters;
 					parameter.YParameter = ToRadians(5);
 					TransformFigure(_figure, _container.RotateAroundY3D, parameter);
 					TransformFigure(_point3d, _container.RotateAroundY3D, parameter);
 					break;
-				case Keys.C:
+				case Keys.C:  // повернуть фигуру по Z
 					parameter = _container.RotationParameters;
 					parameter.ZParameter = ToRadians(5);
 					TransformFigure(_figure, _container.RotateAroundZ3D, parameter);
 					TransformFigure(_point3d, _container.RotateAroundZ3D, parameter);
 					break;
-				case Keys.F3:
+				case Keys.F3:  // увеличить систему
 					parameter = _container.ScalingParameters;
 					parameter.XParameter = 2;
 					parameter.YParameter = 2;
@@ -146,7 +131,7 @@ namespace Lab1
 					TransformFigure(_figure, _container.Scaling3D, parameter);
 					TransformFigure(_point3d, _container.Scaling3D, parameter);
 					break;
-				case Keys.F4:
+				case Keys.F4:  // уменьшить систему
 					parameter = _container.ScalingParameters;
 					parameter.XParameter = 0.5;
 					parameter.YParameter = 0.5;
@@ -216,7 +201,7 @@ namespace Lab1
 			parameters.YParameter = ToRadians(-45);
 
 			finalTransformation = _container.RotateAroundX3D.GetTransformation(parameters);
-			//finalTransformation *= _container.RotateAroundY3D.GetTransformation(parameters);
+			finalTransformation *= _container.RotateAroundY3D.GetTransformation(parameters);
 
 			ApplyTransformation(_figure, finalTransformation);
 			ApplyTransformation(_coords, finalTransformation);
@@ -235,9 +220,6 @@ namespace Lab1
 		{
 			_coordsStartPoint.X += (float)parameters.XParameter;
 			_coordsStartPoint.Y += (float)parameters.YParameter;
-			labelXTransfer.Text = _coordsStartPoint.X.ToString();
-			labelYTransfer.Text = _coordsStartPoint.Y.ToString();
-
 			canvas.Invalidate();
 		}
 
@@ -248,33 +230,6 @@ namespace Lab1
 			ApplyTransformation(_coords, matrix);
 			ApplyTransformation(_point3d, matrix);
 			canvas.Invalidate();
-		}
-
-		private void RotateSystemAroundX(Parameters<double> parameters)
-		{
-			Matrix<double> matrix = _container.RotateAroundX3D.GetTransformation(parameters);
-			ApplyTransformation(_figure, matrix);
-			ApplyTransformation(_coords, matrix);
-			ApplyTransformation(_point3d, matrix);
-			canvas.Refresh();
-		}
-
-		private void RotateSystemAroundY(Parameters<double> parameters)
-		{
-			Matrix<double> matrix = _container.RotateAroundY3D.GetTransformation(parameters);
-			ApplyTransformation(_figure, matrix);
-			ApplyTransformation(_coords, matrix);
-			ApplyTransformation(_point3d, matrix);
-			canvas.Refresh();
-		}
-
-		private void RotateSystemAroundZ(Parameters<double> parameters)
-		{
-			Matrix<double> matrix = _container.RotateAroundZ3D.GetTransformation(parameters);
-			ApplyTransformation(_figure, matrix);
-			ApplyTransformation(_coords, matrix);
-			ApplyTransformation(_point3d, matrix);
-			canvas.Refresh();
 		}
 
 		private void MoveFigure(Figure<double> figure, Parameters<double> parameter)
