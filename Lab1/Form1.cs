@@ -26,6 +26,8 @@ namespace Lab1
 		private PointF _coordsStartPoint = new PointF(0, 0);
 
 		private GarbageContainer _container = new GarbageContainer();
+		private Timer _timer = new Timer();
+		private double _parabolaHeight = 8;
 
 		public Form1()
 		{
@@ -39,6 +41,8 @@ namespace Lab1
 			SystemToStartCondition();
 			this.MouseWheel += Form1_MouseWheel;
 			this.KeyDown += Form1_KeyDown;
+			_timer.Interval = 100;
+			_timer.Tick += _timer_Tick;
 		}
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -139,8 +143,38 @@ namespace Lab1
 					TransformFigure(_figure, _container.Scaling3D, parameter);
 					TransformFigure(_point3d, _container.Scaling3D, parameter);
 					break;
+				case Keys.Space:
+					{
+						_timer.Start();
+						break;
+					}
 				default:
 					break;
+			}
+		}
+
+		private void _timer_Tick(object sender, EventArgs e)
+		{
+			var param = _container.TransferParameters;
+			List<double> sequence;
+			sequence = GenerateParabolaSequence(_parabolaHeight);
+			param.XParameter = 0;
+			param.ZParameter = 0;
+			for (int j = 0; j < sequence.Count; j++)
+			{
+				param.YParameter = -sequence[j];
+				MoveFigure(_figure, param);
+			}
+			for (int j = sequence.Count - 1; j > -1; j--)
+			{
+				param.YParameter = sequence[j];
+				MoveFigure(_figure, param);
+			}
+			_parabolaHeight--;
+			if (_parabolaHeight < 0)
+			{
+				_timer.Stop();
+				_parabolaHeight = 8;
 			}
 		}
 
@@ -201,7 +235,7 @@ namespace Lab1
 			parameters.YParameter = ToRadians(-45);
 
 			finalTransformation = _container.RotateAroundX3D.GetTransformation(parameters);
-			finalTransformation *= _container.RotateAroundY3D.GetTransformation(parameters);
+			//finalTransformation *= _container.RotateAroundY3D.GetTransformation(parameters);
 
 			ApplyTransformation(_figure, finalTransformation);
 			ApplyTransformation(_coords, finalTransformation);
@@ -236,7 +270,7 @@ namespace Lab1
 		{
 			Matrix<double> matrix = _container.ParallelTransfer3D.GetTransformation(parameter);
 			ApplyTransformation(figure, matrix);
-			canvas.Invalidate();
+			canvas.Refresh();
 		}
 
 		private void TransformFigure(Figure<double> figure, ITransformation<double> transformation, Parameters<double> parameters)
@@ -246,9 +280,15 @@ namespace Lab1
 			canvas.Invalidate();
 		}
 
-		private void AnimateButton_Click(object sender, EventArgs e)
+		private List<double> GenerateParabolaSequence(double pointsCount)
 		{
-
+			List<double> points = new List<double>();
+			while (pointsCount > -1)
+			{
+				points.Add(Math.Pow(pointsCount, 2));
+				pointsCount -= 0.3;
+			}
+			return points;
 		}
 	}
 }

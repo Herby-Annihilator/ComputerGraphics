@@ -63,7 +63,6 @@ namespace Lab1
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.AnimateButton = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -170,7 +169,6 @@ namespace Lab1
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.AnimateButton);
 			this.groupBox4.Controls.Add(this.labelZIncline);
 			this.groupBox4.Controls.Add(this.labelYIncline);
 			this.groupBox4.Controls.Add(this.labelXIncline);
@@ -428,16 +426,6 @@ namespace Lab1
 			this.label9.TabIndex = 2;
 			this.label9.Text = "Смещение по Х:";
 			// 
-			// AnimateButton
-			// 
-			this.AnimateButton.Location = new System.Drawing.Point(81, 196);
-			this.AnimateButton.Name = "AnimateButton";
-			this.AnimateButton.Size = new System.Drawing.Size(201, 23);
-			this.AnimateButton.TabIndex = 6;
-			this.AnimateButton.Text = "Анимашка";
-			this.AnimateButton.UseVisualStyleBackColor = true;
-			this.AnimateButton.Click += new System.EventHandler(this.AnimateButton_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -503,7 +491,6 @@ namespace Lab1
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label labelYFigureTransfer;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Button AnimateButton;
 	}
 }
 
